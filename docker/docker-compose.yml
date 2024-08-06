@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   php-fpm:
-    container_name: training_php_fpm
+    container_name: php_fpm
     build:
       context: ./../
       dockerfile: docker/php-fpm/Dockerfile
@@ -15,7 +15,7 @@ services:
     environment:
       PHP_IDE_CONFIG: "serverName=training"
   nginx:
-    container_name: training_nginx
+    container_name: nginx
     build:
       context: ./nginx
     ports:
@@ -25,7 +25,7 @@ services:
     depends_on:
       - php-fpm
   postgres:
-    container_name: training_postgres
+    container_name: postgres
     build:
       context: ./postgres
     ports:
@@ -37,7 +37,7 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data:rw
   mongodb:
-    container_name: training_mongodb
+    container_name: mongodb
     image: mongo:latest
     ports:
       - ${MONGODB_PORT}:27017
@@ -48,7 +48,7 @@ services:
     volumes:
       - mongo_data:/data/db
   rabbitmq:
-    container_name: training_rabbitmq
+    container_name: rabbitmq
     image: rabbitmq:management
     ports:
       - ${RABBITMQ_PORT}:5672
