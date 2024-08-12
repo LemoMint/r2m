@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^2.12",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/mongodb-odm": "^2.8",
+        "doctrine/mongodb-odm-bundle": "^5.0",
         "doctrine/orm": "^3.2",
         "symfony/amqp-messenger": "7.1.*",
         "symfony/console": "7.1.*",
@@ -19,6 +20,7 @@
         "symfony/framework-bundle": "7.1.*",
         "symfony/messenger": "7.1.*",
         "symfony/runtime": "7.1.*",
+        "symfony/uid": "7.1.*",
         "symfony/yaml": "7.1.*"
     },
     "config": {
