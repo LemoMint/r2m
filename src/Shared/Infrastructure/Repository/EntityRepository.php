@@ -2,11 +2,11 @@
 
 namespace App\Shared\Infrastructure\Repository;
 
-use App\Shared\Domain\Repository\AbstractRepositoryInterface;
+use App\Shared\Domain\Repository\RepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-abstract class AbstractRepository extends ServiceEntityRepository implements AbstractRepositoryInterface
+abstract class EntityRepository extends ServiceEntityRepository implements RepositoryInterface
 {
     public function __construct(ManagerRegistry $registry, string $entityClass)
     {
@@ -31,8 +31,8 @@ abstract class AbstractRepository extends ServiceEntityRepository implements Abs
         }
     }
 
-    public function findOneById(int $id): ?object
+    public function findOneByUlid(string $ulid): ?object
     {
-        return $this->findOneBy(['id' => $id]);
+        return $this->findOneBy(['ulid' => $ulid]);
     }
 }

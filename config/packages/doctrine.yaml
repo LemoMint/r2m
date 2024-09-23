@@ -3,6 +3,9 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
+        types:
+            blog_post_id:  App\BlogPosts\Infrastructure\Database\Type\DoctrineBlogPostIdType
+            async_message_id:  App\Shared\Infrastructure\Database\Type\AsyncMessage\AsyncMessageIdType
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true
@@ -15,5 +18,10 @@ doctrine:
                 is_bundle: false
                 type: xml
                 dir: '%kernel.project_dir%/src/BlogPosts/Infrastructure/Database/ORM'
-                prefix: 'App\BlogPosts\Domain\Entity'
+                prefix: 'App\BlogPosts\Domain\Aggregate\BlogPost'
                 alias: BlogPosts
+            AsyncMessage:
+                type: xml
+                dir: '%kernel.project_dir%/src/Shared/Infrastructure/Database/ORM'
+                prefix: 'App\Shared\Domain\Aggregate\AsyncMessage'
+                alias: AsyncMessages

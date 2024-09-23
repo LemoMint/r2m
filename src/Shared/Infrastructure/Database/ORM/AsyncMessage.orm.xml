@@ -3,11 +3,16 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="App\BlogPosts\Domain\Aggregate\BlogPost\BlogPost" table="blog_posts">
-        <id name="ulid" type="blog_post_id">
+    <entity name="App\Shared\Domain\Aggregate\AsyncMessage\AsyncMessage" table="shared_messages_async">
+
+        <id name="ulid" type="async_message_id">
             <generator strategy="NONE"/>
         </id>
-        <field name="body" type="string"/>
+        <field name="body"/>
+        <field name="messageClass"/>
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="messageCreated"/>
+        </lifecycle-callbacks>
     </entity>
 
 </doctrine-mapping>

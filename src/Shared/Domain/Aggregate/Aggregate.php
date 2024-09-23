@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Shared\Domain;
+namespace App\Shared\Domain\Aggregate;
 
-use App\Shared\Domain\Event\EventInterface;
+use App\Shared\Domain\Event\DomainEventInterface;
 
-class Aggregate
+abstract class Aggregate
 {
     /**
-     * @var EventInterface[]
+     * @var DomainEventInterface[]
      */
     private array $events;
 
@@ -24,7 +24,7 @@ class Aggregate
         return empty($this->events);
     }
 
-    public function raise(EventInterface $event): void
+    public function raise(DomainEventInterface $event): void
     {
         $this->events[] = $event;
     }

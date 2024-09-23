@@ -7,5 +7,5 @@ controllers:
     type: attribute
 
 blog_posts:
-    resource: ../src/BlogPosts/Infrastructure/Controller/
+    resource: ../src/BlogPosts/Presentation/Controller/REST/
     type: attribute

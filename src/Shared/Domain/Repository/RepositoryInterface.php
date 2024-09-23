@@ -2,13 +2,12 @@
 
 namespace App\Shared\Domain\Repository;
 
-interface AbstractRepositoryInterface
+interface RepositoryInterface
 {
-    public function findOneById(int $id): ?object;
+    public function findOneByUlid(string $ulid): ?object;
+    public function findAll();
 
     public function add($entity, bool $flush = false): void;
 
     public function remove($entity, bool $flush = false): void;
-
-    public function findAll();
 }

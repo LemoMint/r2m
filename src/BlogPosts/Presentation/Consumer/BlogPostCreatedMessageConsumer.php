@@ -1,9 +1,9 @@
 <?php
 
-namespace App\BlogPosts\Infrastructure\EventListener\Consumers;
+namespace App\BlogPosts\Presentation\Consumer;
 
-use App\BlogPosts\Domain\Document\BlogPostStatistics;
-use App\BlogPosts\Domain\Event\BlogPostCreatedEvent;
+use App\BlogPosts\Domain\Aggregate\BlogPostStatistics;
+use App\BlogPosts\Domain\Event\BlogPostCreatedDomainEvent;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\MongoDBException;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
@@ -20,9 +20,9 @@ readonly class BlogPostCreatedMessageConsumer
     /**
      * @throws MongoDBException
      */
-    public function __invoke(BlogPostCreatedEvent $message): void
+    public function __invoke(BlogPostCreatedDomainEvent $message): void
     {
-        $blogPost = new BlogPostStatistics($message->getBlogPostUlid());
+        $blogPost = BlogPostStatistics::writeNewFrom($message->blogPostUlid);
         $this->dm->persist($blogPost);
         $this->dm->flush();
     }

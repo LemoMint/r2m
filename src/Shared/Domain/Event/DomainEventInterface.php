@@ -2,7 +2,7 @@
 
 namespace App\Shared\Domain\Event;
 
-interface EventInterface
+interface DomainEventInterface
 {
 
 }

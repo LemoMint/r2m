@@ -15,4 +15,4 @@ framework:
                     queues:
                         blog_posts: ~
         routing:
-            'App\BlogPosts\Domain\Event\BlogPostCreatedEvent': async
+            'App\BlogPosts\Domain\Event\BlogPostCreatedDomainEvent': async

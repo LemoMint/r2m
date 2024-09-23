@@ -1,16 +1,24 @@
 <?php
 
-namespace App\BlogPosts\Domain\Document;
+namespace App\BlogPosts\Domain\Aggregate;
 
 class BlogPostStatistics
 {
     private \DateTime $createdAt;
 
-    public function __construct(
+    private function __construct(
         private string $ulid
     )
     {
         $this->createdAt = new \DateTime();
+    }
+
+    public static function writeNewFrom(
+        string $ulid
+    ): static
+    {
+        $blogPostStatistics = new static($ulid);
+        return $blogPostStatistics;
     }
 
     public function getUlid(): string

@@ -2,9 +2,9 @@
 
 namespace App\Shared\Application\Event;
 
-use App\Shared\Domain\Event\EventInterface;
+use App\Shared\Domain\Event\DomainEventInterface;
 
 interface EventBusInterface
 {
-    public function execute(EventInterface ...$events): void;
+    public function execute(DomainEventInterface ...$events): void;
 }

@@ -27,6 +27,6 @@ services:
             tags:
                 - { name: messenger.message_handler, bus: event.bus }
 
-    App\BlogPosts\Infrastructure\Controller\:
-        resource: '../src/BlogPosts/Infrastructure/Controller/'
+    App\BlogPosts\Presentation\Controller\REST\:
+        resource: '../src/BlogPosts/Presentation/Controller/REST/'
         tags: [ 'controller.service_arguments' ]

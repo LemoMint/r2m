@@ -3,7 +3,7 @@
 namespace App\Shared\Infrastructure\EventListener\Doctrine;
 
 use App\Shared\Application\Event\EventBusInterface;
-use App\Shared\Domain\Aggregate;
+use App\Shared\Domain\Aggregate\Aggregate;
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\Event\OnFlushEventArgs;
 use Doctrine\ORM\Events;

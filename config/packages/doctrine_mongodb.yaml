@@ -13,5 +13,5 @@ doctrine_mongodb:
                 BlogPostStatistics:
                     type: xml
                     dir:  '%kernel.project_dir%/src/BlogPosts/Infrastructure/Database/ODM'
-                    prefix: 'App\BlogPosts\Domain\Document'
+                    prefix: ' App\BlogPosts\Domain\Aggregate'
                     alias: BlogPostStatistics

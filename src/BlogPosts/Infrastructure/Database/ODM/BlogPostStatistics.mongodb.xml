@@ -3,7 +3,7 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                         http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <document name="App\BlogPosts\Domain\Document\BlogPostStatistics" db="training" collection="blog_posts_statistics">
+    <document name=" App\BlogPosts\Domain\Aggregate\BlogPost\BlogPostStatistics" db="training" collection="blog_posts_statistics">
         <id field-name="ulid" type="string" strategy="NONE"/>
         <field name="createdAt" type="date"/>
     </document>
